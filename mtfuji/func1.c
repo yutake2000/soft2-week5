@@ -26,6 +26,10 @@ static int comp_alt(const void *x0, const void *x1)
 void load_samples(const char filename[]) {
 
   FILE *fp = fopen(filename, "r");
+  if (fp == NULL) {
+    fprintf(stderr, "couldn't open '%s'\n", filename);
+    exit(1);
+  }
 
   char buffer[100];
   while((fgets(buffer, 100, fp)) != NULL) sample_count++;

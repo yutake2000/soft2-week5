@@ -5,8 +5,9 @@
 
 int main(const int argc, const char **argv)
 {
-  // 引数の個数が1の時だけ、alpha に第1引数を採用し、それ以外は0.01
-  const double alpha = (argc >= 2) ? atof(argv[1]) : 0.01;
+  
+  // ./mtfuji [<alpha> <filename>]
+  const double alpha = (argc >= 2) ? atof(argv[1]) : 0.001;
   const char *data_filename = (argc >= 3) ? argv[2] : "data.csv";
 
   load_samples(data_filename);
